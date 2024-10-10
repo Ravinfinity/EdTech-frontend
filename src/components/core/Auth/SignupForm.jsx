@@ -1,15 +1,13 @@
-import { useState } from "react"
-import { toast } from "react-hot-toast"
-import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai"
-import { useDispatch } from "react-redux"
-import { useNavigate } from "react-router-dom"
+import { useState } from "react";
+import { toast } from "react-hot-toast";
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-import { sendOtp } from "../../../services/operations/authAPI"
-import { setSignupData } from "../../../slices/authSlice"
-import { ACCOUNT_TYPE } from "../../../utils/constants"
-import Tab from "../../common/Tab"
-
-
+import { sendOtp } from "../../../services/operations/authAPI";
+import { setSignupData } from "../../../slices/authSlice";
+import { ACCOUNT_TYPE } from "../../../utils/constants";
+import Tab from "../../common/Tab";
 
 function SignupForm() {
   const navigate = useNavigate();
@@ -46,7 +44,7 @@ function SignupForm() {
     e.preventDefault();
 
     if (password !== confirmPassword) {
-      toast.error("Passwords Do Not Match")
+      toast.error("Passwords Do Not Match");
       return;
     }
     const signupData = {
@@ -67,7 +65,7 @@ function SignupForm() {
       email: "",
       password: "",
       confirmPassword: "",
-    })
+    });
     setAccountType(ACCOUNT_TYPE.STUDENT);
   };
 
@@ -151,7 +149,6 @@ function SignupForm() {
           />
         </label>
 
-
         <div className="flex gap-x-4">
           {/* Create Password */}
           <label className="relative">
@@ -174,7 +171,7 @@ function SignupForm() {
               onClick={() => setShowPassword((prev) => !prev)}
               className="absolute right-3 top-[38px] z-[10] cursor-pointer"
             >
-              {showPassword ? (
+              {!showPassword ? (
                 <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
               ) : (
                 <AiOutlineEye fontSize={24} fill="#AFB2BF" />
@@ -203,7 +200,7 @@ function SignupForm() {
               onClick={() => setShowConfirmPassword((prev) => !prev)}
               className="absolute right-3 top-[38px] z-[10] cursor-pointer"
             >
-              {showConfirmPassword ? (
+              {!showConfirmPassword ? (
                 <AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF" />
               ) : (
                 <AiOutlineEye fontSize={24} fill="#AFB2BF" />
@@ -211,7 +208,6 @@ function SignupForm() {
             </span>
           </label>
         </div>
-
 
         <button
           type="submit"
@@ -221,7 +217,7 @@ function SignupForm() {
         </button>
       </form>
     </div>
-  )
+  );
 }
 
-export default SignupForm
+export default SignupForm;
