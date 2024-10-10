@@ -33,7 +33,7 @@ export async function getAllInstructorDetails(token) {
       GET_ALL_INSTRUCTORS_DATA_API,
       null,
       {
-        Authorization: `Bearer ${token}`,
+        Authorisation: `Bearer ${token}`,
       }
     );
     console.log("GET_ALL_INSTRUCTORS_DATA_API RESPONSE............", response);
