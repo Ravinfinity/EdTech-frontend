@@ -83,62 +83,62 @@ export default function CourseInformationForm() {
     // console.log(data)
 
     if (editCourse) {
-      // const currentValues = getValues()
+      // const currentValues = getValues();
       // console.log("changes after editing form values:", currentValues)
       // console.log("now course:", course)
       // console.log("Has Form Changed:", isFormUpdated())
       if (isFormUpdated()) {
         const currentValues = getValues();
-        // const formData = new FormData();
+        const formData = new FormData();
         // // console.log("data -> ", data);
-        // formData.append("courseId", course._id);
-        // if (currentValues.courseTitle !== course.courseName) {
-        //   formData.append("courseName", data.courseTitle);
-        // }
-        // if (currentValues.courseShortDesc !== course.courseDescription) {
-        //   formData.append("courseDescription", data.courseShortDesc);
-        // }
-        // if (currentValues.coursePrice !== course.price) {
-        //   formData.append("price", data.coursePrice);
-        // }
-        // if (currentValues.courseTags.toString() !== course.tag.toString()) {
-        //   formData.append("tag", JSON.stringify(data.courseTags));
-        //   // formData.append("tag", data.courseTags)
-        // }
-        // if (currentValues.courseBenefits !== course.whatYouWillLearn) {
-        //   formData.append("whatYouWillLearn", data.courseBenefits);
-        // }
-        // if (currentValues.courseCategory._id !== course.category._id) {
-        //   formData.append("category", data.courseCategory);
-        // }
-        // if (
-        //   currentValues.courseRequirements.toString() !==
-        //   course.instructions.toString()
-        // ) {
-        //   formData.append(
-        //     "instructions",
-        //     JSON.stringify(data.courseRequirements)
-        //   );
-        // }
-        // if (currentValues.courseImage !== course.thumbnail) {
-        //   formData.append("thumbnailImage", data.courseImage);
-        // }
+        formData.append("courseId", course._id);
+        if (currentValues.courseTitle !== course.courseName) {
+          formData.append("courseName", data.courseTitle);
+        }
+        if (currentValues.courseShortDesc !== course.courseDescription) {
+          formData.append("courseDescription", data.courseShortDesc);
+        }
+        if (currentValues.coursePrice !== course.price) {
+          formData.append("price", data.coursePrice);
+        }
+        if (currentValues.courseTags.toString() !== course.tag.toString()) {
+          formData.append("tag", JSON.stringify(data.courseTags));
+          // formData.append("tag", data.courseTags)
+        }
+        if (currentValues.courseBenefits !== course.whatYouWillLearn) {
+          formData.append("whatYouWillLearn", data.courseBenefits);
+        }
+        if (currentValues.courseCategory._id !== course.category._id) {
+          formData.append("category", data.courseCategory);
+        }
+        if (
+          currentValues.courseRequirements.toString() !==
+          course.instructions.toString()
+        ) {
+          formData.append(
+            "instructions",
+            JSON.stringify(data.courseRequirements)
+          );
+        }
+        if (currentValues.courseImage !== course.thumbnail) {
+          formData.append("thumbnailImage", data.courseImage);
+        }
 
-        let newForm = {
-          courseId: course._id,
-          courseName: data.courseTitle,
-          courseDescription: data.courseShortDesc,
-          price: data.coursePrice,
-          tag: JSON.stringify(data.courseTags),
-          whatYouWillLearn: data.courseBenefits,
-          category: data.courseCategory,
-          instructions: JSON.stringify(data.courseRequirements),
-          thumbnailImage: data.courseImage,
-        };
+        // let newForm = {
+        //   courseId: course._id,
+        //   courseName: data.courseTitle,
+        //   courseDescription: data.courseShortDesc,
+        //   price: data.coursePrice,
+        //   tag: JSON.stringify(data.courseTags),
+        //   whatYouWillLearn: data.courseBenefits,
+        //   category: data.courseCategory,
+        //   instructions: JSON.stringify(data.courseRequirements),
+        //   thumbnailImage: data.courseImage,
+        // };
 
         // send data to backend
         setLoading(true);
-        const result = await editCourseDetails(newForm, token);
+        const result = await editCourseDetails(formData, token);
 
         setLoading(false);
         if (result) {
