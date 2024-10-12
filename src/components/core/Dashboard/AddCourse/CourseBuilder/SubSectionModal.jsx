@@ -104,25 +104,25 @@ export default function SubSectionModal({
       return;
     }
 
-    // const formData = new FormData();
-    // formData.append("sectionId", modalData);
-    // formData.append("title", data.lectureTitle);
-    // formData.append("description", data.lectureDesc);
-    // formData.append("video", data.lectureVideo);
+    const formData = new FormData();
+    formData.append("sectionId", modalData);
+    formData.append("title", data.lectureTitle);
+    formData.append("description", data.lectureDesc);
+    formData.append("video", data.lectureVideo);
     // for (let pair of formData.entries()) {
     //   console.log(pair[0] + ": " + pair[1]);
     // }
     // console.log(formData);
-    let newData = {
-      sectionId: modalData,
-      title: data.lectureTitle,
-      description: data.lectureDesc,
-      timeDuration: "5:31",
-    };
+    // let newData = {
+    //   sectionId: modalData,
+    //   title: data.lectureTitle,
+    //   description: data.lectureDesc,
+    //   timeDuration: "5:31",
+    // };
     setLoading(true);
 
-    // const result = await createSubSection(formData, token);
-    const result = await createSubSection(newData, token);
+    const result = await createSubSection(formData, token);
+    // const result = await createSubSection(newData, token);
     if (result) {
       // update the structure of course
       const updatedCourseContent = course.courseContent.map((section) =>
