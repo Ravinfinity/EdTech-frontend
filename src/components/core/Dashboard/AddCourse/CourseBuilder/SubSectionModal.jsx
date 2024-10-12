@@ -108,7 +108,7 @@ export default function SubSectionModal({
     formData.append("sectionId", modalData);
     formData.append("title", data.lectureTitle);
     formData.append("description", data.lectureDesc);
-    formData.append("video", data.lectureVideo);
+    formData.append("videoFile", data.lectureVideo);
     // for (let pair of formData.entries()) {
     //   console.log(pair[0] + ": " + pair[1]);
     // }
