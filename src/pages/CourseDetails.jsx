@@ -293,7 +293,7 @@ function CourseDetails() {
                   <span>
                     {totalNoOfLectures} {`lecture(s)`}
                   </span>
-                  <span>{response.data?.totalDuration} Total Time</span>
+                  <span>{response?.data?.totalDuration} Total Time</span>
                 </div>
                 <button
                   className="text-yellow-25"
